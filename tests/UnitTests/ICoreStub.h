@@ -26,7 +26,7 @@ public:
   virtual bool get_random_outs_for_amounts(const CryptoNote::COMMAND_RPC_GET_RANDOM_OUTPUTS_FOR_AMOUNTS_request& req,
       CryptoNote::COMMAND_RPC_GET_RANDOM_OUTPUTS_FOR_AMOUNTS_response& res);
   virtual bool get_tx_outputs_gindexs(const Crypto::Hash& tx_id, std::vector<uint32_t>& indexs);
-  virtual CryptoNote::i_cryptonote_protocol* get_protocol();
+  virtual CryptoNote::i_bingocoin_protocol* get_protocol();
   virtual bool handle_incoming_tx(CryptoNote::BinaryArray const& tx_blob, CryptoNote::tx_verification_context& tvc, bool keeped_by_block);
   virtual std::vector<CryptoNote::Transaction> getPoolTransactions() override;
   virtual bool getPoolChanges(const Crypto::Hash& tailBlockId, const std::vector<Crypto::Hash>& knownTxsIds,

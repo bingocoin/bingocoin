@@ -30,7 +30,7 @@ namespace CryptoNote
   class Currency;
 
   class CryptoNoteProtocolHandler : 
-    public i_cryptonote_protocol, 
+    public i_bingocoin_protocol, 
     public ICryptoNoteProtocolQuery
   {
   public:
@@ -69,7 +69,7 @@ namespace CryptoNote
     int handle_response_chain_entry(int command, NOTIFY_RESPONSE_CHAIN_ENTRY::request& arg, CryptoNoteConnectionContext& context);
     int handleRequestTxPool(int command, NOTIFY_REQUEST_TX_POOL::request& arg, CryptoNoteConnectionContext& context);
 
-    //----------------- i_cryptonote_protocol ----------------------------------
+    //----------------- i_bingocoin_protocol ----------------------------------
     virtual void relay_block(NOTIFY_NEW_BLOCK::request& arg) override;
     virtual void relay_transactions(NOTIFY_NEW_TRANSACTIONS::request& arg) override;
 

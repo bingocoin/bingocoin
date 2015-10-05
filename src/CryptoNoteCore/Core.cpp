@@ -51,14 +51,14 @@ private:
   friend class core;
 };
 
-core::core(const Currency& currency, i_cryptonote_protocol* pprotocol, Logging::ILogger& logger) :
+core::core(const Currency& currency, i_bingocoin_protocol* pprotocol, Logging::ILogger& logger) :
 m_currency(currency),
 logger(logger, "core"),
 m_mempool(currency, m_blockchain, m_timeProvider, logger),
 m_blockchain(currency, m_mempool, logger),
 m_miner(new miner(currency, *this, logger)),
 m_starter_message_showed(false) {
-  set_cryptonote_protocol(pprotocol);
+  set_bingocoin_protocol(pprotocol);
   m_blockchain.addObserver(this);
     m_mempool.addObserver(this);
   }
@@ -67,7 +67,7 @@ m_starter_message_showed(false) {
   m_blockchain.removeObserver(this);
 }
 
-void core::set_cryptonote_protocol(i_cryptonote_protocol* pprotocol) {
+void core::set_bingocoin_protocol(i_bingocoin_protocol* pprotocol) {
   if (pprotocol)
     m_pprotocol = pprotocol;
   else

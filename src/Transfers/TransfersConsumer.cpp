@@ -274,8 +274,8 @@ std::error_code TransfersConsumer::onPoolUpdated(const std::vector<std::unique_p
   unconfirmedBlockInfo.timestamp = 0; 
   unconfirmedBlockInfo.height = WALLET_LEGACY_UNCONFIRMED_TRANSACTION_HEIGHT;
   std::error_code processingError;
-  for (auto& cryptonoteTransaction : addedTransactions) {
-    processingError = processTransaction(unconfirmedBlockInfo, *cryptonoteTransaction.get());
+  for (auto& bingocoinTransaction : addedTransactions) {
+    processingError = processTransaction(unconfirmedBlockInfo, *bingocoinTransaction.get());
     if (processingError) {
       break;
     }

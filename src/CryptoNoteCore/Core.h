@@ -32,13 +32,13 @@ namespace CryptoNote {
 
   class core : public ICore, public IMinerHandler, public IBlockchainStorageObserver, public ITxPoolObserver {
    public:
-     core(const Currency& currency, i_cryptonote_protocol* pprotocol, Logging::ILogger& logger);
+     core(const Currency& currency, i_bingocoin_protocol* pprotocol, Logging::ILogger& logger);
      ~core();
 
      bool on_idle();
      virtual bool handle_incoming_tx(const BinaryArray& tx_blob, tx_verification_context& tvc, bool keeped_by_block); //Deprecated. Should be removed with CryptoNoteProtocolHandler.
      bool handle_incoming_block_blob(const BinaryArray& block_blob, block_verification_context& bvc, bool control_miner, bool relay_block);
-     virtual i_cryptonote_protocol* get_protocol(){return m_pprotocol;}
+     virtual i_bingocoin_protocol* get_protocol(){return m_pprotocol;}
      const Currency& currency() const { return m_currency; }
 
      //-------------------- IMinerHandler -----------------------
@@ -107,7 +107,7 @@ namespace CryptoNote {
      bool get_alternative_blocks(std::list<Block>& blocks);
      size_t get_alternative_blocks_count();
 
-     void set_cryptonote_protocol(i_cryptonote_protocol* pprotocol);
+     void set_bingocoin_protocol(i_bingocoin_protocol* pprotocol);
      void set_checkpoints(Checkpoints&& chk_pts);
 
      std::vector<Transaction> getPoolTransactions() override;
@@ -170,10 +170,10 @@ namespace CryptoNote {
      CryptoNote::RealTimeProvider m_timeProvider;
      tx_memory_pool m_mempool;
      Blockchain m_blockchain;
-     i_cryptonote_protocol* m_pprotocol;
+     i_bingocoin_protocol* m_pprotocol;
      std::unique_ptr<miner> m_miner;
      std::string m_config_folder;
-     cryptonote_protocol_stub m_protocol_stub;
+     bingocoin_protocol_stub m_protocol_stub;
      friend class tx_validate_inputs;
      std::atomic<bool> m_starter_message_showed;
      Tools::ObserverManager<ICoreObserver> m_observerManager;

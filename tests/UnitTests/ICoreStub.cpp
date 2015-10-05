@@ -66,7 +66,7 @@ bool ICoreStub::get_tx_outputs_gindexs(const Crypto::Hash& tx_id, std::vector<ui
   return globalIndicesResult;
 }
 
-CryptoNote::i_cryptonote_protocol* ICoreStub::get_protocol() {
+CryptoNote::i_bingocoin_protocol* ICoreStub::get_protocol() {
   return nullptr;
 }
 

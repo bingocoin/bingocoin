@@ -225,7 +225,7 @@ int main(int argc, char* argv[])
     CryptoNote::RpcServer rpcServer(dispatcher, logManager, ccore, p2psrv);
 
     cprotocol.set_p2p_endpoint(&p2psrv);
-    ccore.set_cryptonote_protocol(&cprotocol);
+    ccore.set_bingocoin_protocol(&cprotocol);
     DaemonCommandsHandler dch(ccore, p2psrv, logManager);
 
     // initialize objects
@@ -281,7 +281,7 @@ int main(int argc, char* argv[])
     logger(INFO) << "Deinitializing p2p...";
     p2psrv.deinit();
 
-    ccore.set_cryptonote_protocol(NULL);
+    ccore.set_bingocoin_protocol(NULL);
     cprotocol.set_p2p_endpoint(NULL);
 
   } catch (const std::exception& e) {
