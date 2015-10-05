@@ -64,7 +64,7 @@ void InProcTestNode::workerThread(std::promise<std::string>& initPromise) {
     protocol.reset(new CryptoNote::CryptoNoteProtocolHandler(m_currency, dispatcher, *core, NULL, log));
     p2pNode.reset(new CryptoNote::NodeServer(dispatcher, *protocol, log));
     protocol->set_p2p_endpoint(p2pNode.get());
-    core->set_bingocoin_protocol(protocol.get());
+    core->set_cryptonote_protocol(protocol.get());
 
     CryptoNote::NetNodeConfig p2pConfig;
 
@@ -113,7 +113,7 @@ void InProcTestNode::workerThread(std::promise<std::string>& initPromise) {
 
   core->deinit();
   p2pNode->deinit();
-  core->set_bingocoin_protocol(NULL);
+  core->set_cryptonote_protocol(NULL);
   protocol->set_p2p_endpoint(NULL);
 
   p2pNode.reset();

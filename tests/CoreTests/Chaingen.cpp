@@ -21,7 +21,7 @@
 #include "CryptoNoteCore/Currency.h"
 
 //#include "AccountBoostSerialization.h"
-//#include "bingocoin_boost_serialization.h"
+//#include "cryptonote_boost_serialization.h"
 
 using namespace std;
 using namespace CryptoNote;

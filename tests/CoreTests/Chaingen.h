@@ -401,7 +401,7 @@ inline bool do_replay_events(std::vector<test_event_entry>& events, t_test_class
   CryptoNote::CoreConfig coreConfig;
   coreConfig.init(vm);
   CryptoNote::MinerConfig emptyMinerConfig;
-  CryptoNote::bingocoin_protocol_stub pr; //TODO: stub only for this kind of test, make real validation of relayed objects
+  CryptoNote::cryptonote_protocol_stub pr; //TODO: stub only for this kind of test, make real validation of relayed objects
   CryptoNote::core c(validator.currency(), &pr, logger);
   if (!c.init(coreConfig, emptyMinerConfig, false))
   {
